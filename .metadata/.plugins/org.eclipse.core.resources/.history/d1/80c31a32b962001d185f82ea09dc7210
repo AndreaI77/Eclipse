@@ -1,0 +1,9 @@
+package com.andrea._10_2tablas;
+
+public class Curso {
+
+	
+	public static void verCurso() {
+		
+	}
+}

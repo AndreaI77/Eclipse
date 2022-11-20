@@ -1,0 +1,10 @@
+package modelo;
+
+import java.util.List;
+
+public class Curso {
+	int id;
+	String nombre;
+	List<Participante> lista;
+
+}

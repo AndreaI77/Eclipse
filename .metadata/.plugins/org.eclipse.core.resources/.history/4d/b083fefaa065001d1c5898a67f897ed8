@@ -1,0 +1,136 @@
+package com.andrea._15_Final;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+public class Joke {
+	String category,type, joke, setup, delivery, lang;
+	
+	Map<String, String> flags;
+	int id;
+	
+	
+	public Joke(String category, String type, String joke, String setup, String delivery, String lang,
+			Map<String, String> flags, int id) {
+		super();
+		this.category = category;
+		this.type = type;
+		this.joke = joke;
+		this.setup = setup;
+		this.delivery = delivery;
+		this.lang = lang;
+		this.flags = flags;
+		this.id = id;
+	}
+	
+	@Override
+	public String toString() {
+		return "Joke [category=" + category + ", type=" + type + ", joke=" + joke + ", setup=" + setup + ", delivery="
+				+ delivery + ", lang=" + lang + ", flags=" + flags + ", id=" + id + "]";
+	}
+
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getJoke() {
+		return joke;
+	}
+	public void setJoke(String joke) {
+		this.joke = joke;
+	}
+	public String getSetup() {
+		return setup;
+	}
+	public void setSetup(String setup) {
+		this.setup = setup;
+	}
+	public String getDelivery() {
+		return delivery;
+	}
+	public void setDelivery(String delivery) {
+		this.delivery = delivery;
+	}
+	public String getLang() {
+		return lang;
+	}
+	public void setLang(String lang) {
+		this.lang = lang;
+	}
+	public Map<String, String> getFlags() {
+		return flags;
+	}
+	public void setFlags(Map<String, String> flags) {
+		this.flags = flags;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public static List<Joke> leerDatos(Propiedades prop) {
+
+    	
+    	int contador=0, id=0;
+    	String category = "";
+    	String type = "", joke = "", setup = "", delivery ="", lang = "";
+    	Map<String, String> flags = new HashMap<String, String>();
+    	Joke jk;
+    	List<Joke> jokes = new ArrayList<Joke>();
+    	
+    	// obtengo la cantidad de chistes de cada idioma
+    	List<Range> lista = prop.getRange();
+    	
+    	try {
+    		
+    		for(Range r : lista) {
+    			System.out.println("Cargando chistes en idioma '"+r.getIdioma()+"' .........");
+    			for(int i =0; i< r.getCantidad();i++) {
+    				String texto = Conexion.readUrl("https://v2.jokeapi.dev/joke/Any?idRange="+i+"&lang="+r.getIdioma());
+    				System.out.println(texto +contador);
+    				JsonParser parser = new JsonParser();
+    				JsonObject obj = parser.parse(texto).getAsJsonObject();
+    				category = obj.get("category").getAsString();
+    				type = obj.get("type").getAsString();
+    				if(type.equals("single")) {
+    					joke=obj.get("joke").getAsString();
+    				}else {
+    					setup = obj.get("setup").getAsString();
+    					delivery = obj.get("delivery").getAsString();
+    				}
+    				JsonObject jo = obj.get("flags").getAsJsonObject();
+    				flags = new Gson().fromJson(jo.toString(), Map.class);
+    				//System.out.println(flags);
+    				id = obj.get("id").getAsInt();
+    				lang = obj.get("lang").getAsString();
+    				jk= new Joke(category, type, joke, setup, delivery, lang, flags, id);
+    				jokes.add(jk);
+    				Thread.sleep(500);
+    				contador++;
+    				
+    			}
+    			
+    		}} catch (Exception e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    			return null;
+    		}
+    	return jokes;
+	}
+}

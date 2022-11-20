@@ -1,0 +1,32 @@
+<asignaturas>
+	<asignatura id="AD">
+		<nombre>Acceso a Datos</nombre>
+		<cicloFormativo>DAM</cicloFormativo>
+		<curso>Segundo</curso>
+	</asignatura>
+	<asignatura id="DI">
+		<nombre>Interfaces</nombre>
+		<cicloFormativo>DAM</cicloFormativo>
+		<curso>Segundo</curso>
+	</asignatura>
+	<asignatura id="SGE">
+		<nombre>Sistemass de gestión empresarial</nombre>
+		<cicloFormativo>DAM</cicloFormativo>
+		<curso>Segundo</curso>
+	</asignatura>
+	<asignatura id="PSP">
+		<nombre>Programación de servicios y procesos</nombre>
+		<cicloFormativo>DAM</cicloFormativo>
+		<curso>Segundo</curso>
+	</asignatura>
+	<asignatura id="EIE">
+		<nombre>Empresa e iniciativa emprendedora</nombre>
+		<cicloFormativo>DAM</cicloFormativo>
+		<curso>Segundo</curso>
+	</asignatura>
+	<asignatura id="PMDM">
+		<nombre>Programación multimedia y dispositivos móviles</nombre>
+		<cicloFormativo>DAM</cicloFormativo>
+		<curso>Segundo</curso>
+	</asignatura>
+</asignaturas>

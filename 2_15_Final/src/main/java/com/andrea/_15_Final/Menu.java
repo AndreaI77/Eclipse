@@ -1,0 +1,34 @@
+package com.andrea._15_Final;
+
+import java.util.Scanner;
+
+public class Menu {
+	public static int elegirOpcion() {
+		
+		//devuelve el número de la opción elegida
+		 Scanner sc = new Scanner(System.in);
+	        int num = 0;
+	        boolean res = false;
+	        while(!res) {
+	        	System.out.println();
+	        	System.out.println("Elige una opción");
+		        System.out.println("1. Resetear base de datos (duración: 15 min)");
+		        System.out.println("2. Añadir chiste Statement");
+		        System.out.println("3. Añadir chiste PreparedStatement");
+		        System.out.println("4. Búsqueda por texto");
+		        System.out.println("5. Chistes sin flags");
+		        System.out.println("6. Salir");
+		        try {
+		        	num = sc.nextInt();
+		        	res= true;
+		        }catch(Exception e) {
+		        	System.out.println("Inserta un número!");
+		        	System.out.println();
+		        	res = false;
+		        }
+	        }
+	      
+	     return num;   
+	}
+
+}

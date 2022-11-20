@@ -1,0 +1,23 @@
+package com.andrea._15_Final;
+
+public class Range {
+	String idioma;
+	int cantidad;
+	
+	public String getIdioma() {
+		return idioma;
+	}
+	public void setIdioma(String idioma) {
+		this.idioma = idioma;
+	}
+	public int getCantidad() {
+		return cantidad;
+	}
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
+	
+	
+	
+
+}

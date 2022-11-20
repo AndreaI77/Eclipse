@@ -1,0 +1,34 @@
+package com.andrea._10_2tablas;
+
+import java.util.Scanner;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	int num = 0;
+    	do {
+    		Menu.elegirOpcion();
+    		switch(num) {
+    		case 1: crearCurso();
+    		case 2: anyadirParticipantes();
+    		case 3: verCurso();
+    		case 4: System.out.println("Hasta luego");
+    		}
+    	}while(num != 4);
+       
+    }
+    public static void crearCurso() {
+    	
+    }
+    public static void anyadirParticipantes() {
+    	
+    }
+    public static void verCurso() {
+    	
+    }
+}

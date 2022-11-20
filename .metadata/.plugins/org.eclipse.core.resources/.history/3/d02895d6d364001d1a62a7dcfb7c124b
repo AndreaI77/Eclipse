@@ -1,0 +1,6 @@
+package com.andrea._15_Final;
+
+public class Joke {
+	String category;
+
+}

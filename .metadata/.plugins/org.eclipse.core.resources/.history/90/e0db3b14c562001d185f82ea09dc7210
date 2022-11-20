@@ -1,0 +1,83 @@
+package com.andrea._10_2tablas;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.Scanner;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	
+    	int num = 0;
+    	
+    	
+    	do {
+    		num =Menu.elegirOpcion();
+    		
+    		switch(num) {
+    		case 1: crearCurso();break;
+    		case 2: anyadirParticipantes(); break;
+    		case 3: verCurso(); break;
+    		case 4: System.out.println("Hasta luego");break;
+    		default: System.out.println("Opción desconocida");
+    		}
+    	}while(num != 4);
+       
+    }
+    public static void crearCurso() {
+    	Scanner sc = new Scanner(System.in);
+    	String nombre = "";
+    	String st = "";
+    	boolean res= false;
+    	LocalDate fecha = null;
+    	
+    	
+    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		//while(nombre.equals("")) {
+			System.out.println("Inserta nombre:");
+			
+				nombre = sc.nextLine();	
+		//}
+		
+		while(!res) {
+			System.out.println("Inserta fecha de inicio en formato dd/mm/yyyy");
+			
+				st = sc.next();
+			try {
+				fecha = LocalDate.parse(st, formatter);
+				res= true;
+			}catch (DateTimeParseException e) {
+				System.out.println("Respete el formato solicitado e introduzca una fecha válida");
+				res = false;
+			}
+		}
+    	try {
+			Connection con = Conexion.makeConnection();
+			Statement statement = con.createStatement();
+			String sql = "INSERT INTO cursos (nombre, fechaini) VALUES ('"+nombre+"', "+fecha+");";
+
+			int filas = statement.executeUpdate(sql);
+			System.out.println("Registros insertados: " + filas);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	
+    }
+    public static void anyadirParticipantes() {
+    	
+    }
+    public static void verCurso() {
+    	
+    }
+}

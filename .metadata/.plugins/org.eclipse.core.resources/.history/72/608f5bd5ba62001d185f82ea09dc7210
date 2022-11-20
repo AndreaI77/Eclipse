@@ -1,0 +1,10 @@
+package com.andrea._10_2tablas;
+
+import java.util.List;
+
+public class Curso {
+	int id;
+	String nombre;
+	List<Participante> lista;
+
+}

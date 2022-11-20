@@ -1,0 +1,10 @@
+package com.andrea._15_Final;
+
+public class Range {
+	String idioma;
+	int cantidad;
+	
+	
+	
+
+}

@@ -1,0 +1,10 @@
+package com.andrea._15_Final;
+
+import java.util.Map;
+
+public class Joke {
+	String category, joke, setup, delivery, lang;
+	int id;
+	Map<String, String> flags;
+
+}

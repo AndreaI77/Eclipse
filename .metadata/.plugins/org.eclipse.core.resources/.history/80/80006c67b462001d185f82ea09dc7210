@@ -1,0 +1,15 @@
+package com.andrea._10_2tablas;
+
+import java.util.Scanner;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+       Menu.elegirOpcion();
+    }
+}

@@ -1,0 +1,20 @@
+<personas>
+	<persona>
+		<nombre>ana</nombre>
+		<edad>58</edad>
+		<email>asdirkfgj</email>
+		<comentario>sdtg</comentario>
+	</persona>
+	<persona>
+		<nombre>juan</nombre>
+		<edad>45</edad>
+		<email>juan@gmail.com</email>
+		<comentario>blablabla</comentario>
+	</persona>
+	<persona>
+		<nombre>sdfg</nombre>
+		<edad>18</edad>
+		<email>sdgfh</email>
+		<comentario>sgh</comentario>
+	</persona>
+</personas>

@@ -1,0 +1,83 @@
+package com.andrea._15_Final;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	
+    	
+    	int contador=0, id=0;
+    	boolean result;
+    	String category = "";
+    	String type = "", joke = "", setup = "", delivery ="", lang = "";
+    	Map<String, String> flags = new HashMap<String, String>();
+    	Joke jk;
+    	List<Joke> jokes = new ArrayList<Joke>();
+    	
+    	
+    	Propiedades prop = Propiedades.obtenerPropiedades();
+    	
+    	// obtengo la cantidad de chistes de cada idioma
+    	List<Range> lista = prop.getRange();
+    	
+    	try {
+    		
+    		for(Range r : lista) {
+    			System.out.println("Cargando chistes en idioma '"+r.getIdioma()+"' .........");
+    			for(int i =0; i< r.getCantidad();i++) {
+    				String texto = Conexion.readUrl("https://v2.jokeapi.dev/joke/Any?idRange="+i+"&lang="+r.getIdioma());
+    				//System.out.println(texto +contador);
+    				JsonParser parser = new JsonParser();
+    				JsonObject obj = parser.parse(texto).getAsJsonObject();
+    				category = obj.get("category").getAsString();
+    				type = obj.get("type").getAsString();
+    				if(type.equals("single")) {
+    					joke=obj.get("joke").getAsString();
+    				}else {
+    					setup = obj.get("setup").getAsString();
+    					delivery = obj.get("delivery").getAsString();
+    				}
+    				JsonObject jo = obj.get("flags").getAsJsonObject();
+    				flags = new Gson().fromJson(jo.toString(), Map.class);
+    				//System.out.println(flags);
+    				id = obj.get("id").getAsInt();
+    				lang = obj.get("lang").getAsString();
+    				jk= new Joke(category, type, joke, setup, delivery, lang, flags, id);
+    				jokes.add(jk);
+    				Thread.sleep(500);
+    				contador++;
+
+    			}
+    			
+    		}
+    		
+    		if(result=BaseDatos.recargarTablas(prop, jokes)) {
+    			System.out.println("Se han cargado los datos en la BD");
+    		}else {
+    			System.out.println("Ha ocurrido algún error, no se han cargado datos.");
+    		}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+}
