@@ -18661,3 +18661,4 @@ Caused by: java.lang.Exception: File not found: C:\eclipse-workspace\prueba2\pom
 2023-01-10 23:17:46,324 [Worker-105: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2023-01-10 23:17:46,324 [Worker-105: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\eclipse-workspace\practica4\src\main\resources
 2023-01-10 23:17:46,325 [Worker-105: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2023-01-10 23:17:46,325 [Worker-105: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\eclipse-workspace\practica4\src\test\resources
