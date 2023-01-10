@@ -94,9 +94,6 @@ END
 $BODY$ LANGUAGE 'plpgsql'
 
 
-
-
-
 CREATE OR REPLACE FUNCTION buscar_chiste_sin_flag()
 RETURNS table(id int, id_language int, idioma varchar(3), categoria varchar(10), tipo varchar(10),text varchar(1000), text2 varchar(1000)) as $$
 
@@ -108,3 +105,8 @@ on joke.id_language = joke_flags.id_language and joke.id = joke_flags.id_jokes
 order by id_language, id ) as sub, language, category, types 
 where sub.id_flags is null and language.id = sub.id_language and category.id = sub.id_category and types.id = sub.id_type order by sub.id_language, sub.id;
 $$ LANGUAGE sql
+
+--un select más normal para buscar chistes sin flags:--
+select joke.id, joke.id_language, language.name as idioma, category.name as categoria,types.type as tipo, joke.text as texto1, joke.text2 as texto2 
+from joke,language,category,types where joke.id_language = language.id and joke.id_category = category.id and joke.id_type = types.id
+and joke.id not in(select id_jokes from joke_flags) order by joke.id_language, joke.id ;

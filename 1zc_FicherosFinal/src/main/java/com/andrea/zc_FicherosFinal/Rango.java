@@ -11,6 +11,8 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Stream;
@@ -104,7 +106,9 @@ public class Rango {
 				linea = reader.readLine();
 
 			}
-			
+			//ordenar lista por hora y fecha
+			lista.sort((d1,d2)-> d1.getHora().compareTo(d2.getHora()));
+			lista.sort((d1,d2)-> d1.getFecha().compareTo(d2.getFecha()));
 			LocalTime time = null;
 			DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm");
 			LocalDate fc = null;

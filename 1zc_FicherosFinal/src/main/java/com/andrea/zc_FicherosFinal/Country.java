@@ -36,8 +36,7 @@ public class Country {
 					System.out.println(name + ", capital: " + capital);
 				}
 			}
-		
-			
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

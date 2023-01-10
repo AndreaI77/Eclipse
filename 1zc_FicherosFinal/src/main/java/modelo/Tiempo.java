@@ -7,6 +7,7 @@ public class Tiempo {
 	private LocalDate fecha;
 	private String hora;
 	private Float temperatura;
+	
 	public Tiempo(LocalDate fecha, String hora, Float temperatura) {
 		super();
 		this.fecha = fecha;

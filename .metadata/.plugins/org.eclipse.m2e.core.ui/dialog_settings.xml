@@ -40,6 +40,12 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.andrea.prueba2"/>
+			<item value="com.andrea.prueba"/>
+			<item value="com.andrea.Ej0401_hibernateAnotaciones"/>
+			<item value="com.andrea.ej0401_hibernate"/>
+			<item value="com.andrea.Hibernate1"/>
+			<item value="com.andrea.ej3_Final"/>
 			<item value="com.andrea._15_Final"/>
 			<item value="com.andrea._10_2tablas"/>
 			<item value="com.andrea._9_MenuUpdate"/>
@@ -49,17 +55,17 @@
 			<item value="com.andrea._ConexionJava"/>
 			<item value="com.andrea.zc_FicherosFinal"/>
 			<item value="com.andrea.zb_FicherosJsonInternet"/>
-			<item value="com.andrea.za_FicherosJSON"/>
-			<item value="com.andrea.z_ficherosXMLconDOM3"/>
-			<item value="com.andrea.y_FicherosXMLconDOM2"/>
-			<item value="com.andrea.x_FicherosXMLconSAX2"/>
-			<item value="com.andrea.v_FicherosXMLconDOM"/>
-			<item value="com.andrea.u_FicherosXMLconSAX"/>
 		</list>
 		<list key="groupId">
 			<item value="com.andrea"/>
 		</list>
 		<list key="artifactId">
+			<item value="prueba2"/>
+			<item value="prueba"/>
+			<item value="Ej0401_hibernateAnotaciones"/>
+			<item value="ej0401_hibernate"/>
+			<item value="Hibernate1"/>
+			<item value="ej3_Final"/>
 			<item value="2_15_Final"/>
 			<item value="2_10_2tablas"/>
 			<item value="2_9_MenuUpdate"/>
@@ -69,12 +75,6 @@
 			<item value="2_5_listarArticulos"/>
 			<item value="_ConexionJava"/>
 			<item value="1zc_FicherosFinal"/>
-			<item value="1zb_FicherosJsonInternet"/>
-			<item value="1za_FicherosJSON"/>
-			<item value="1z_ficherosXMLconDOM3"/>
-			<item value="1y_FicherosXMLconDOM2"/>
-			<item value="1x_FicherosXMLconSAX2"/>
-			<item value="1v_FicherosXMLconDOM"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -110,5 +110,22 @@
 	<section name="org.eclipse.m2e.core.pom.overview">
 	</section>
 	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\eclipse-workspace\practica4"/>
+			<item value="C:\eclipse-workspace\ej03_10final\tema3_exercise10esqueleto"/>
+			<item value="C:\Users\ivano\Downloads\AndreaIvanova0310\tema3_exercise10esqueleto"/>
+			<item value="C:\Users\ivano\Downloads\tema3_exercise10esqueleto"/>
+			<item value="C:\eclipse-workspace\Ej03_10_Final"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[name]"/>
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+		</list>
 	</section>
 </section>

@@ -22,7 +22,7 @@ import modelo.Medicion;
 
 public class BuscarCoordenadas {
 	final static String apiKey = "fcd9d465ad20815067d4dac2e5c1d73c";
-	
+	//https://api.openweathermap.org/data/2.5/weather?lat=38.3452&lon=-0.4815&appid=fcd9d465ad20815067d4dac2e5c1d73c&units=metric
 	private static Medicion med;
 	
 	public static boolean comprobarFloat(String cadena) {

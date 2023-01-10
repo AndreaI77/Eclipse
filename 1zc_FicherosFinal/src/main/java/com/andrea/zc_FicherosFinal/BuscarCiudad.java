@@ -24,7 +24,7 @@ public class BuscarCiudad {
 
 	final static String apiKey = "fcd9d465ad20815067d4dac2e5c1d73c";
 	private static Medicion med;
-	
+	//https://api.openweathermap.org/data/2.5/weather?q=madrid&mode=xml&appid=fcd9d465ad20815067d4dac2e5c1d73c&units=metric
 	public static Medicion obtenerCiudad() {
 		float lat = 0.0f;
 		float lon = 0.0f;
