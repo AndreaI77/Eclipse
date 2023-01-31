@@ -118,8 +118,6 @@ public class HibernateUtils {
 			return false;
 		} 
 	}
-
-	
 	/**
 	 * Borramos los objetos de la clase que cumplen la condición Where pasada.
 	 * @param <T> Clase con la que trabajamos 
@@ -276,6 +274,4 @@ public class HibernateUtils {
 		objects.forEach(e->contador[0] += save(e)?1:0);
 		return contador[0];
 	}
-	
-	
 }

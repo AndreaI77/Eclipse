@@ -473,7 +473,7 @@ public class Utils {
 										}
 									}
 								}else {
-									//En caso de que el chiste ya era del tiò "twopart" doy la opción de cambiar segundo texto
+									//En caso de que el chiste ya era del tipo "twopart" doy la opción de cambiar segundo texto
 									System.out.println("¿Quieres cambiar segundo texto? (s/n)");
 									str=sc.nextLine().trim();
 									if(str.equalsIgnoreCase("s")) {
