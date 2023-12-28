@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+	<title th:text="${titulo}"></title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1 th:text="${titulo}"></h1>
+		<form th:action="@{/categories/editar}" th:object="${categories}" method="post">
+			   <div class="errorblock" th:if="${#fields.hasErrors('*')}">
+				<ul>
+					<li th:each="err:${#fields.errors('*')}"
+						th:text="${err}">Input is incorrect</li>
+				</ul>
+			</div> 
+			<fieldset>
+				<legend>Editar Categor&iacute;a</legend>
+				<table>
+					 
+					<tr>
+						<td>
+						<input type="hidden" th:field="*{id}"/>
+						<label  >Nombre:</label></td>
+						<td><input type="text" th:field="*{category}" required/></td>
+					</tr>
+		
+					
+					<tr>
+						<td><button type= "submit"> <i class="bi bi-save ">&nbsp</i>Guardar</button></td>
+					</tr>
+				</table>
+			</fieldset>
+		</form>
+		<p><a class="btn " th:href="@{/categories/listar}"><i class="bi bi-arrow-left ">&nbsp</i>Volver</a></p>
+
+</body>
+</html>

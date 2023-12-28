@@ -5,14 +5,19 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
@@ -47,8 +52,10 @@ public class Jokes implements Serializable {
 	}
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	//especifica la columna en la BD
 	@Column(name = "id", unique = true, nullable = false)
+	
 	public int getId() {
 		return this.id;
 	}
@@ -57,17 +64,20 @@ public class Jokes implements Serializable {
 		this.id = id;
 	}
 	//refleja la relación con la tabla Categories.
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
+	
 	@JoinColumn(name = "category_id")
 	public Categories getCategories() {
 		return this.categories;
 	}
 
+
 	public void setCategories(Categories categories) {
 		this.categories = categories;
 	}
 	//refleja la relación con la tabla Language.
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
+	
 	@JoinColumn(name = "language_id")
 	public Language getLanguage() {
 		return this.language;
@@ -77,16 +87,18 @@ public class Jokes implements Serializable {
 		this.language = language;
 	}
 	//refleja la relación con la tabla Types
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
+	
 	@JoinColumn(name = "type_id")
 	public Types getTypes() {
 		return this.types;
 	}
 
+
 	public void setTypes(Types types) {
 		this.types = types;
 	}
-
+	
 	@Column(name = "text1")
 	public String getText1() {
 		return this.text1;
@@ -109,6 +121,8 @@ public class Jokes implements Serializable {
 	@JoinTable(name = "jokes_flags", joinColumns = {
 			@JoinColumn(name = "joke_id", nullable = false, updatable = false) }, inverseJoinColumns = {
 					@JoinColumn(name = "flag_id", nullable = false, updatable = false) })
+	@JsonIgnoreProperties("jokeses")
+	
 	public Set<Flags> getFlagses() {
 		return this.flagses;
 	}

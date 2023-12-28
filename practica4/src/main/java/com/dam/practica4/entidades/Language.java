@@ -12,6 +12,8 @@ import org.hibernate.annotations.NamedQuery;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import jakarta.persistence.OneToMany;
@@ -58,6 +60,7 @@ public class Language implements java.io.Serializable {
 	}
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	//especificación de la columna en la tabla
 	@Column(name = "id", unique = true, nullable = false)
 	public int getId() {

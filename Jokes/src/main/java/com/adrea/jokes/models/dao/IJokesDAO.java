@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.adrea.jokes.models.entity.Jokes;
 
-public interface IJokesDAO extends CrudRepository<Jokes,Long> {
+public interface IJokesDAO extends CrudRepository<Jokes,Integer> {
 
 }

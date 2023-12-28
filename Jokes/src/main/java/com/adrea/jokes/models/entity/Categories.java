@@ -5,12 +5,18 @@ import java.util.Objects;
 import java.util.Set;
 
 import com.adrea.jokes.models.entity.Categories;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "categories")
@@ -40,7 +46,7 @@ public class Categories implements java.io.Serializable {
 	}
 
 	@Id
-
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
 	public int getId() {
 		return this.id;
@@ -49,7 +55,7 @@ public class Categories implements java.io.Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-
+	@NotEmpty(message = "la categoría no puede estar vacía")
 	@Column(name = "category", nullable = false)
 	public String getCategory() {
 		return this.category;
@@ -60,9 +66,11 @@ public class Categories implements java.io.Serializable {
 	}
 	//refleja las relaciones entre las tablas.
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "categories")
+	@JsonIgnore
 	public Set<Jokes> getJokeses() {
 		return this.jokeses;
 	}
+	
 
 	public void setJokeses(Set<Jokes> jokeses) {
 		this.jokeses = jokeses;
